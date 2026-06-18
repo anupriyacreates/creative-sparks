@@ -18,7 +18,11 @@ const keys = [
   'moshing',
 ]
 
-export const doodles = Object.fromEntries(keys.map((k) => [k, `/doodles/${k}.svg`]))
+// BASE_URL is '/' in dev and '/creative-sparks/' in the production (Pages)
+// build, so these runtime asset paths resolve correctly in both.
+const BASE = import.meta.env.BASE_URL
+
+export const doodles = Object.fromEntries(keys.map((k) => [k, `${BASE}doodles/${k}.svg`]))
 
 export function doodlePath(key) {
   return doodles[key] || doodles.dancing
