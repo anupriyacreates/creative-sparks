@@ -121,32 +121,33 @@ body {
   .trail-dot {
     display: none;
   }
+  /* full-width flex container centers the pill horizontally — immune to font
+     reflow and to the bob animation's transform */
   .touch-hint {
-    display: block;
+    display: flex;
+    justify-content: center;
     position: fixed;
-    /* span the full width and center via auto margins — NOT translateX, which
-       the bobDown animation's transform would clobber and knock off-center */
     left: 0;
     right: 0;
     bottom: clamp(18px, 5vh, 36px);
-    width: fit-content;
-    max-width: 90vw;
-    margin: 0 auto;
+    margin: 0;
+    padding: 0 16px;
     z-index: 9999;
-    text-align: center;
-    color: var(--ink);
+    pointer-events: none;
+  }
+  .touch-hint span {
     font-family: 'Space Grotesk', system-ui, sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     white-space: nowrap;
-    pointer-events: none;
+    color: var(--ink);
     opacity: 0.85;
     animation: bobDown 1.6s ease-in-out infinite;
   }
   /* on the dark landing: an opaque black pill with white text */
-  .touch-hint.on-dark {
+  .touch-hint.on-dark span {
     color: #ffffff;
     background: #000000;
     padding: 9px 18px;
