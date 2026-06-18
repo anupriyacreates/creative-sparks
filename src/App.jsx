@@ -72,6 +72,10 @@ export default function App() {
       <AnimatePresence>
         {!started && <Landing key="landing" onEnter={() => setStarted(true)} />}
       </AnimatePresence>
+      {/* touch-only cue (the cursor label is hidden on touch devices) */}
+      <p className={`touch-hint ${started ? '' : 'on-dark'}`} aria-hidden="true">
+        {started ? 'swipe ↕' : 'swipe to begin'}
+      </p>
       <ScrollCursor
         phrases={
           started

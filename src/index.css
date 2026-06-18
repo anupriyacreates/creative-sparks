@@ -106,7 +106,13 @@ body {
   height: 5px;
 }
 
-/* touch devices have no cursor — show the native one, hide the label + trail */
+/* touch-only swipe cue (the cursor label doesn't exist on touch) */
+.touch-hint {
+  display: none;
+}
+
+/* touch devices have no cursor — show the native one, hide the label + trail,
+   and surface the swipe hint instead */
 @media (hover: none) {
   body {
     cursor: auto;
@@ -114,6 +120,28 @@ body {
   .scroll-cursor,
   .trail-dot {
     display: none;
+  }
+  .touch-hint {
+    display: block;
+    position: fixed;
+    left: 50%;
+    bottom: clamp(18px, 5vh, 36px);
+    transform: translateX(-50%);
+    z-index: 9999;
+    margin: 0;
+    color: var(--ink);
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0.85;
+    animation: bobDown 1.6s ease-in-out infinite;
+  }
+  .touch-hint.on-dark {
+    color: #fff8ec;
   }
 }
 
