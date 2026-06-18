@@ -124,11 +124,15 @@ body {
   .touch-hint {
     display: block;
     position: fixed;
-    left: 50%;
+    /* span the full width and center via auto margins — NOT translateX, which
+       the bobDown animation's transform would clobber and knock off-center */
+    left: 0;
+    right: 0;
     bottom: clamp(18px, 5vh, 36px);
-    transform: translateX(-50%);
+    width: fit-content;
+    max-width: 90vw;
+    margin: 0 auto;
     z-index: 9999;
-    margin: 0;
     text-align: center;
     color: var(--ink);
     font-family: 'Space Grotesk', system-ui, sans-serif;
