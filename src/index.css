@@ -129,6 +129,7 @@ body {
     transform: translateX(-50%);
     z-index: 9999;
     margin: 0;
+    text-align: center;
     color: var(--ink);
     font-family: 'Space Grotesk', system-ui, sans-serif;
     font-size: 13px;
@@ -140,8 +141,13 @@ body {
     opacity: 0.85;
     animation: bobDown 1.6s ease-in-out infinite;
   }
+  /* on the dark landing: an opaque black pill with white text */
   .touch-hint.on-dark {
-    color: #fff8ec;
+    color: #ffffff;
+    background: #000000;
+    padding: 9px 18px;
+    border-radius: 999px;
+    opacity: 1;
   }
 }
 
