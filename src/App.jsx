@@ -4,6 +4,7 @@ import { useQuoteEngine } from './hooks/useQuoteEngine.js'
 import { useGlobalInput } from './hooks/useGlobalInput.js'
 import QuoteStage from './components/QuoteStage.jsx'
 import ScrollCursor from './components/ScrollCursor.jsx'
+import CursorGlow from './components/CursorGlow.jsx'
 import Ambient from './components/Ambient.jsx'
 import Landing from './components/Landing.jsx'
 
@@ -53,6 +54,7 @@ export default function App() {
   return (
     <div className="app">
       {started && <Ambient />}
+      <CursorGlow />
       <QuoteStage quote={current} />
       {started && (
         <button
